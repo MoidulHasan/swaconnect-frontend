@@ -1,13 +1,17 @@
 import React from 'react';
 
 const PhoneCarrierOperations = ({ simInfo }) => {
-  console.log("Sim info : ", simInfo);
-
+  console.log(simInfo);
   const { simStatus, statusDate, phonePlan, serviceCarrier, MDN } = simInfo;
+
+  // console.log(serviceCarrier.name)
+
+  const serviceCarrierName = serviceCarrier?.name;
+
+  // const serviceCarrierName = serviceCarrier.name;
 
   const simStausDate = new Date(Date.parse(statusDate));
   const simStatusDateFormated = `${simStausDate.getDate()}/${simStausDate.getMonth()}/${simStausDate.getFullYear()}`;
-  // console.log(simStatusDateFormated);
   return (
     <>
       <div className='phoneCarrierOpContainer m-2 border rounded p-3'>
@@ -34,7 +38,7 @@ const PhoneCarrierOperations = ({ simInfo }) => {
                 <th scope='row'>{simStatus}</th>
                 <td>{simStatusDateFormated}</td>
                 <td>{phonePlan ? phonePlan : "Not Assigned"}</td>
-                <td>{serviceCarrier.name}</td>
+                <td>{serviceCarrierName ? serviceCarrierName : "NA"}</td>
                 <td>{MDN ? MDN : "NA"}</td>
               </tr>
             </tbody>

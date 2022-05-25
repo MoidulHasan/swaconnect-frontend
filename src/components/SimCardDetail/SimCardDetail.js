@@ -62,7 +62,7 @@ const SimCardDetail = (props) => {
     <div className='tables'>
       <SimCard simInfo={simInfo}></SimCard>
       <PhoneCarrierOperations simInfo={simInfo}></PhoneCarrierOperations>
-      <AcpOperation></AcpOperation>
+      <AcpOperation simInfo={simInfo}></AcpOperation>
       <Returns></Returns>
       <Notes></Notes>
       <SimOperationsLog></SimOperationsLog>

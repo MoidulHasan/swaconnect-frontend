@@ -1,6 +1,11 @@
 import React from 'react';
 
-const AcpOperation = () => {
+const AcpOperation = ({ simInfo }) => {
+
+  console.log(simInfo);
+
+  const { distributor, agent, application, suscriber, device } = simInfo;
+
   return (
     <>
       <div className='AcpOerationContainer m-2 border rounded p-3'>
@@ -17,15 +22,15 @@ const AcpOperation = () => {
                 <th scope='col'>Distributor</th>
                 <th scope='col'>Agent</th>
                 <th scope='col'>Application Number</th>
-                <th scope='col'>Customer ID</th>
+                <th scope='col'>Suscriber ID</th>
               </tr>
             </thead>
             <tbody className='mb-5'>
               <tr>
-                <td>Swap Next</td>
-                <td>Luci Tech</td>
-                <td>4545787854</td>
-                <td>Kuddus</td>
+                <td>{distributor ? distributor : "Not Assigned"}</td>
+                <td>{agent ? agent : "Not Assigned"}</td>
+                <td>{application?.id ? application?.id : "NA"}</td>
+                <td>{suscriber?.id ? suscriber?.id : "Not Assigned"}</td>
               </tr>
             </tbody>
             <br />
@@ -39,10 +44,10 @@ const AcpOperation = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Hasan</td>
-                <td>Ahmed</td>
-                <td>{new Date().toLocaleDateString()}</td>
-                <td>2020204788</td>
+                <td>{suscriber?.firstName ? suscriber?.firstName : "Not Assigned"}</td>
+                <td>{suscriber?.lastName ? suscriber?.lastName : "Not Assigned"}</td>
+                <td>{application?.date ? application?.date : "NA"}</td>
+                <td>{device?.IMEI ? device?.IMEI : "NA"}</td>
               </tr>
             </tbody>
           </table>
