@@ -6,6 +6,7 @@ import simDetailStyles from './SimCardDetails.module.css';
 const SimCardDetails = () => {
   const { simId } = useParams();
 
+
   const [toggleDivision, setToggleDivision] = useState(1);
 
   const toogleDivisionTab = (index) => {
@@ -24,9 +25,9 @@ const SimCardDetails = () => {
               className={
                 toggleDivision === 1
                   ? [
-                      simDetailStyles['tabs'],
-                      simDetailStyles['activeTabs'],
-                    ].join(' ')
+                    simDetailStyles['tabs'],
+                    simDetailStyles['activeTabs'],
+                  ].join(' ')
                   : simDetailStyles['tabs']
               }
               onClick={() => toogleDivisionTab(1)}
@@ -37,9 +38,9 @@ const SimCardDetails = () => {
               className={
                 toggleDivision === 2
                   ? [
-                      simDetailStyles['tabs'],
-                      simDetailStyles['activeTabs'],
-                    ].join(' ')
+                    simDetailStyles['tabs'],
+                    simDetailStyles['activeTabs'],
+                  ].join(' ')
                   : simDetailStyles['tabs']
               }
               onClick={() => toogleDivisionTab(2)}
@@ -52,9 +53,9 @@ const SimCardDetails = () => {
               className={
                 toggleDivision === 1
                   ? [
-                      simDetailStyles['contentForm'],
-                      simDetailStyles['activeContentForm'],
-                    ].join(' ')
+                    simDetailStyles['contentForm'],
+                    simDetailStyles['activeContentForm'],
+                  ].join(' ')
                   : simDetailStyles['contentForm']
               }
             >
@@ -66,9 +67,9 @@ const SimCardDetails = () => {
               className={
                 toggleDivision === 2
                   ? [
-                      simDetailStyles['contentForm'],
-                      simDetailStyles['activeContentForm'],
-                    ].join(' ')
+                    simDetailStyles['contentForm'],
+                    simDetailStyles['activeContentForm'],
+                  ].join(' ')
                   : simDetailStyles['contentForm']
               }
             >

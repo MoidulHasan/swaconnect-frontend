@@ -1,6 +1,13 @@
 import React from 'react';
 
-const PhoneCarrierOperations = () => {
+const PhoneCarrierOperations = ({ simInfo }) => {
+  console.log("Sim info : ", simInfo);
+
+  const { simStatus, statusDate, phonePlan, serviceCarrier, MDN } = simInfo;
+
+  const simStausDate = new Date(Date.parse(statusDate));
+  const simStatusDateFormated = `${simStausDate.getDate()}/${simStausDate.getMonth()}/${simStausDate.getFullYear()}`;
+  // console.log(simStatusDateFormated);
   return (
     <>
       <div className='phoneCarrierOpContainer m-2 border rounded p-3'>
@@ -24,11 +31,11 @@ const PhoneCarrierOperations = () => {
             </thead>
             <tbody className='mb-5'>
               <tr>
-                <th scope='row'>Blank</th>
-                <td>{new Date().toLocaleDateString()}</td>
-                <td>Kora Plan</td>
-                <td>PWG</td>
-                <td>145897454564854</td>
+                <th scope='row'>{simStatus}</th>
+                <td>{simStatusDateFormated}</td>
+                <td>{phonePlan ? phonePlan : "Not Assigned"}</td>
+                <td>{serviceCarrier.name}</td>
+                <td>{MDN ? MDN : "NA"}</td>
               </tr>
             </tbody>
           </table>

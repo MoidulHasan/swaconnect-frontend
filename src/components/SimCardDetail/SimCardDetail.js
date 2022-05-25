@@ -13,6 +13,9 @@ import Swal from 'sweetalert2';
 
 
 const SimCardDetail = (props) => {
+
+  // console.log(props);
+
   //url pre
   const preUrl = process.env.REACT_APP_ROOT_URL;
 
@@ -26,6 +29,8 @@ const SimCardDetail = (props) => {
   const history = useHistory();
 
   const _id = props.simId;
+
+  console.log(_id)
 
   useEffect(() => {
     fetch(url, {
@@ -48,15 +53,15 @@ const SimCardDetail = (props) => {
             title: 'Sorry',
             text: `${data.message}`,
           });
-          history.goBack();
+          // history.goBack();
         }
       });
   }, []);
-  console.log(simInfo);
+  // console.log(simInfo);
   return (
     <div className='tables'>
       <SimCard simInfo={simInfo}></SimCard>
-      <PhoneCarrierOperations></PhoneCarrierOperations>
+      <PhoneCarrierOperations simInfo={simInfo}></PhoneCarrierOperations>
       <AcpOperation></AcpOperation>
       <Returns></Returns>
       <Notes></Notes>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SimCard = ({ simInfo }) => {
+
   return (
     <>
       <div className='simCardContainer m-2 border rounded p-3'>
@@ -26,7 +27,7 @@ const SimCard = ({ simInfo }) => {
                 <th scope='row'>{simInfo?.SSID}</th>
                 <td>{simInfo?.PUK1}</td>
                 <td>{new Date(simInfo?.createdDate).toLocaleDateString()}</td>
-                <td>{simInfo?.userName}</td>
+                <td>{simInfo?.userName ? simInfo.userName : 'NA'}</td>
                 <td>{simInfo?.vendor ? simInfo.vendor.company : 'NA'}</td>
               </tr>
             </tbody>
