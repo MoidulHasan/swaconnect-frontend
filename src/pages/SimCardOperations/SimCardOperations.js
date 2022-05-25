@@ -100,9 +100,9 @@ const SimCardOperations = () => {
           (new Date(createdDateFrom) < new Date(mData.created_date) &&
             new Date(createdDateTo) > new Date(mData.created_date)) ||
           new Date(createdDateFrom).toDateString() ===
-            new Date(mData.created_date).toDateString() ||
+          new Date(mData.created_date).toDateString() ||
           new Date(createdDateTo).toDateString() ===
-            new Date(mData.created_date).toDateString()) &&
+          new Date(mData.created_date).toDateString()) &&
         (phonePlan === '' || mData.phone_plan === phonePlan) &&
         (agent === '' || mData.agent === agent) &&
         (distributor === '' || mData.distributor === distributor) &&
@@ -302,8 +302,8 @@ const SimCardOperations = () => {
               className='form-select'
               id='simPlan'
               placeholder='Sim Plan'
-              //   ref={simStatusRef}
-              //   onChange={simStatusChange}
+            //   ref={simStatusRef}
+            //   onChange={simStatusChange}
             >
               <option hidden disabled selected value>
                 Select Plan

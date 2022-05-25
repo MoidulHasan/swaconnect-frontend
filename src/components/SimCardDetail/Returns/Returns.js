@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Returns = () => {
+const Returns = (props) => {
+
+  const returns = props?.returns ? props?.returns : {};
+
+  const { date = "NA", reason = "NA", agent = "NA", distributor = "NA", shippingMethod = "NA", trackingNumber = "NA", receiptionStatus = "NA", receiptionDate = "NA" } = returns;
+
   return (
     <>
       <div className='returnContainer m-2 border rounded p-3'>
@@ -25,10 +30,10 @@ const Returns = () => {
             </thead>
             <tbody className='mb-5'>
               <tr>
-                <td>{new Date().toLocaleDateString()}</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{date}</td>
+                <td>{reason}</td>
+                <td>{agent}</td>
+                <td>{distributor}</td>
               </tr>
             </tbody>
             <thead class='thead-dark'>
@@ -41,10 +46,10 @@ const Returns = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Air</td>
-                <td>45245245</td>
-                <td>Ongoing</td>
-                <td>{new Date().toLocaleDateString()}</td>
+                <td>{shippingMethod}</td>
+                <td>{trackingNumber}</td>
+                <td>{receiptionStatus}</td>
+                <td>{receiptionDate}</td>
               </tr>
               <br />
               <tr>

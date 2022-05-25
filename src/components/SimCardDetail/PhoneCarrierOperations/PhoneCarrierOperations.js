@@ -1,14 +1,10 @@
 import React from 'react';
 
 const PhoneCarrierOperations = ({ simInfo }) => {
-  console.log(simInfo);
+
   const { simStatus, statusDate, phonePlan, serviceCarrier, MDN } = simInfo;
 
-  // console.log(serviceCarrier.name)
-
   const serviceCarrierName = serviceCarrier?.name;
-
-  // const serviceCarrierName = serviceCarrier.name;
 
   const simStausDate = new Date(Date.parse(statusDate));
   const simStatusDateFormated = `${simStausDate.getDate()}/${simStausDate.getMonth()}/${simStausDate.getFullYear()}`;

@@ -57,15 +57,14 @@ const SimCardDetail = (props) => {
         }
       });
   }, []);
-  // console.log(simInfo);
   return (
     <div className='tables'>
       <SimCard simInfo={simInfo}></SimCard>
       <PhoneCarrierOperations simInfo={simInfo}></PhoneCarrierOperations>
       <AcpOperation simInfo={simInfo}></AcpOperation>
-      <Returns></Returns>
-      <Notes></Notes>
-      <SimOperationsLog></SimOperationsLog>
+      <Returns returns={simInfo?.returns}></Returns>
+      <Notes notes={simInfo?.notes}></Notes>
+      <SimOperationsLog operations={simInfo?.operations}></SimOperationsLog>
     </div>
   );
 };

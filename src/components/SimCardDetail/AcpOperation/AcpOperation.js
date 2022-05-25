@@ -2,7 +2,7 @@ import React from 'react';
 
 const AcpOperation = ({ simInfo }) => {
 
-  console.log(simInfo);
+  // console.log(simInfo);
 
   const { distributor, agent, application, suscriber, device } = simInfo;
 

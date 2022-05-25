@@ -1,6 +1,27 @@
 import React from 'react';
 
-const Notes = () => {
+const Notes = (props) => {
+
+  const note = props?.notes ? props?.notes : "";
+
+  let noteList = "";
+  if (typeof note === "object") {
+    noteList += note.map(note => {
+      return `<tr>
+        <td>${note?.date}</td>
+        <td>${note?.name}</td>
+        <td colSpan={3}>
+          ${note?.note}
+        </td>
+      </tr>`;
+    })
+  }
+  else {
+    noteList = "No Note added";
+  }
+  console.log(noteList)
+
+
   return (
     <>
       <div className='noteContainer m-2 border rounded p-3'>
@@ -25,17 +46,14 @@ const Notes = () => {
             <tbody className='mb-5'>
               <tr>
                 <td>{new Date().toLocaleDateString()}</td>
-                <td>Name</td>
+                <td>NA</td>
                 <td colSpan={3}>
                   UserNote Lorem, ipsum dolor sit amet consectetur adipisicing
                   elit. Soluta, excepturi.
                 </td>
               </tr>
-              <tr>
-                <td>{new Date().toLocaleDateString()}</td>
-                <td>Name</td>
-                <td colSpan={3}></td>
-              </tr>
+
+              {/* {noteList} */}
             </tbody>
           </table>
         </div>

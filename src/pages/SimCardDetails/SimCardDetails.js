@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SimCardDetail from '../../components/SimCardDetail/SimCardDetail';
+import ServiceCarrierOperations from './ServiceCarrierOperations/ServiceCarrierOperations';
 import simDetailStyles from './SimCardDetails.module.css';
 
 const SimCardDetails = () => {
   const { simId } = useParams();
-
 
   const [toggleDivision, setToggleDivision] = useState(1);
 
@@ -73,7 +73,9 @@ const SimCardDetails = () => {
                   : simDetailStyles['contentForm']
               }
             >
-              <h1>Nashra</h1>
+              <ServiceCarrierOperations
+                simId={simId}
+              ></ServiceCarrierOperations>
             </div>
           </div>
         </div>
