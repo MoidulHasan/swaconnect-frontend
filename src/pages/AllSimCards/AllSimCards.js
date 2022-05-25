@@ -93,23 +93,19 @@ const AllSimCards = () => {
   };
 
   const handleBulkSearch = () => {
+    console.log(ssid, createdDateFrom, createdDateTo, phonePlan, agent, distributor, vendor, simStatus,);
     const matchedData = data.filter(
-      (mData) =>
-        (createdDateFrom === '' ||
-          createdDateTo === '' ||
-          (new Date(createdDateFrom) < new Date(mData.created_date) &&
-            new Date(createdDateTo) > new Date(mData.created_date)) ||
-          new Date(createdDateFrom).toDateString() ===
-            new Date(mData.created_date).toDateString() ||
-          new Date(createdDateTo).toDateString() ===
-            new Date(mData.created_date).toDateString()) &&
-        (phonePlan === '' || mData.phone_plan === phonePlan) &&
+      mData => (
+        (ssid === '' || mData.SSID === ssid) &&
+        ((createdDateFrom === '' || new Date(createdDateFrom) <= new Date(mData.createdDate)) && (createdDateTo === '' || new Date(createdDateTo) >= new Date(mData.createdDate))) &&
+        (phonePlan === '' || mData.phonePlan === phonePlan) &&
         (agent === '' || mData.agent === agent) &&
         (distributor === '' || mData.distributor === distributor) &&
         (vendor === '' || mData.vendor === vendor) &&
-        (simStatus === '' || mData.sim_status === simStatus) &&
-        (ssid === '' || mData.ssid === ssid)
+        (simStatus === '' || mData.simStatus === simStatus)
+      )
     );
+    // console.log(matchedData);
     setDisplayData(matchedData);
   };
 
@@ -131,6 +127,7 @@ const AllSimCards = () => {
     phonePlanRef.current.value = '';
     setSimStatus('');
     simStatusRef.current.value = '';
+    setDisplayData(data);
   };
 
   return (

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import SimCard from './SimCard/SimCard';
 import PhoneCarrierOperations from './PhoneCarrierOperations/PhoneCarrierOperations';
 import AcpOperation from './AcpOperation/AcpOperation';
@@ -6,6 +8,9 @@ import Returns from './Returns/Returns';
 import Notes from './Notes/Notes';
 import SimOperationsLog from './SimOperationsLog/SimOperationsLog';
 import useToken from '../../hooks/useToken';
+import Swal from 'sweetalert2';
+
+
 
 const SimCardDetail = (props) => {
   //url pre
@@ -17,6 +22,8 @@ const SimCardDetail = (props) => {
 
   // getting sim info
   const [simInfo, setSimInfo] = useState({});
+
+  const history = useHistory();
 
   const _id = props.simId;
 
@@ -30,7 +37,20 @@ const SimCardDetail = (props) => {
       body: JSON.stringify({ _id }),
     })
       .then((res) => res.json())
-      .then((data) => setSimInfo(data.data));
+      .then((data) => {
+        console.log(data);
+
+        if (data.status === "success") {
+          setSimInfo(data.data)
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Sorry',
+            text: `${data.message}`,
+          });
+          history.goBack();
+        }
+      });
   }, []);
   console.log(simInfo);
   return (
